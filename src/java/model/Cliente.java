@@ -15,6 +15,17 @@ public class Cliente {
     private int credito;
     private int deuda;
 
+    
+    public Cliente(int id, String nombre, String ap, String am, int credito, int deuda){
+        this.idCliente = id;
+        this.nombre = nombre;
+        this.apPaterno = ap;
+        this.apMaterno = am;
+        this.fechaAlta = new Date();
+        this.credito = credito;
+        this.deuda = deuda;
+    }
+    
     /**
      * @return the idCliente
      */
