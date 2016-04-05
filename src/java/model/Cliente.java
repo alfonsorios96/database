@@ -1,5 +1,8 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -7,17 +10,36 @@ import java.util.Date;
  * @author 0264ARIOS
  */
 public class Cliente {
-    private int idCliente;
+
+    private long idCliente;
     private String nombre;
     private String apPaterno;
     private String apMaterno;
     private Date fechaAlta;
-    private int credito;
-    private int deuda;
+    private long credito;
+    private long deuda;
 
-    
-    public Cliente(int id, String nombre, String ap, String am, int credito, int deuda){
+    public Cliente(long id, String nombre, String ap, String am, Date fecha, long credito, long deuda) {
         this.idCliente = id;
+        this.nombre = nombre;
+        this.apPaterno = ap;
+        this.apMaterno = am;
+        this.fechaAlta = fecha;
+        this.credito = credito;
+        this.deuda = deuda;
+    }
+
+    public Cliente(long id, String nombre, String ap, String am, String fecha, long credito, long deuda) {
+        this.idCliente = id;
+        this.nombre = nombre;
+        this.apPaterno = ap;
+        this.apMaterno = am;
+        this.fechaAlta = this.stringToDate(fecha);
+        this.credito = credito;
+        this.deuda = deuda;
+    }
+
+    public Cliente(String nombre, String ap, String am, long credito, long deuda) {
         this.nombre = nombre;
         this.apPaterno = ap;
         this.apMaterno = am;
@@ -25,18 +47,35 @@ public class Cliente {
         this.credito = credito;
         this.deuda = deuda;
     }
-    
+
     /**
      * @return the idCliente
      */
-    public int getIdCliente() {
+    public long getIdCliente() {
         return idCliente;
+    }
+
+    public String dateToString() {
+        SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+        return formateador.format(this.fechaAlta);
+    }
+
+    public Date stringToDate(String fecha) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date date;
+        try {
+            date = format.parse(fecha);
+        } catch (ParseException ex) {
+            date = new Date();
+            ex.printStackTrace();
+        }
+        return date;
     }
 
     /**
      * @param idCliente the idCliente to set
      */
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -99,28 +138,28 @@ public class Cliente {
     /**
      * @return the credito
      */
-    public int getCredito() {
+    public long getCredito() {
         return credito;
     }
 
     /**
      * @param credito the credito to set
      */
-    public void setCredito(int credito) {
+    public void setCredito(long credito) {
         this.credito = credito;
     }
 
     /**
      * @return the deuda
      */
-    public int getDeuda() {
+    public long getDeuda() {
         return deuda;
     }
 
     /**
      * @param deuda the deuda to set
      */
-    public void setDeuda(int deuda) {
+    public void setDeuda(long deuda) {
         this.deuda = deuda;
     }
 }

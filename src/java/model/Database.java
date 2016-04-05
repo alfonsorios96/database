@@ -12,9 +12,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -89,7 +86,7 @@ public class Database {
 
     public void escribirArchivo(String texto) {
         try {
-            fichero = new FileWriter(path, true);
+            fichero = new FileWriter(path);
             pw = new PrintWriter(fichero);
             pw.println(texto);
             pw.close();
