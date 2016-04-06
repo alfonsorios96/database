@@ -27,7 +27,7 @@ public class Database {
     PrintWriter pw = null;
 
     public void crearArchivo(String path) {
-        path += "\\db.conf";
+        path += "/db.conf";
         archivo = new File(path);
         this.path = path;
 
@@ -42,7 +42,7 @@ public class Database {
     }
 
     public void crearRuta(String path) {
-        path += "\\database";
+        path += "/database";
         File file = new File(path);
         file.mkdirs();
         crearArchivo(path);

@@ -6,7 +6,6 @@
 package controller;
 
 import java.util.ArrayList;
-;
 import model.Cliente;
 import model.Database;
 import org.json.simple.JSONArray;

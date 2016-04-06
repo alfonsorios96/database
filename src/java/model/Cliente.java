@@ -47,6 +47,16 @@ public class Cliente {
         this.credito = credito;
         this.deuda = deuda;
     }
+    
+    public Cliente(long id, String nombre, String ap, String am, long credito, long deuda) {
+        this.idCliente = id;
+        this.nombre = nombre;
+        this.apPaterno = ap;
+        this.apMaterno = am;
+        this.fechaAlta = new Date();
+        this.credito = credito;
+        this.deuda = deuda;
+    }
 
     /**
      * @return the idCliente
